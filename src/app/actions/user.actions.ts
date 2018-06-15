@@ -8,6 +8,8 @@ export enum UserActionTypes {
 
 export class LoadUser implements Action {
   readonly type = UserActionTypes.LoadUser;
+
+  constructor(public payload: {id: number}) {}
 }
 
 export class LoadUserSuccess implements Action {
@@ -18,6 +20,8 @@ export class LoadUserSuccess implements Action {
 
 export class LoadUserFailure implements Action {
   readonly type = UserActionTypes.LoadUserFailure;
+
+  constructor(public payload: {error: any}) {}
 }
 
 export type UserActions = LoadUser;
