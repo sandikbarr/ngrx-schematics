@@ -16,7 +16,7 @@ export class UserEffects {
   loadUser$: Observable<Action> = this.actions$.pipe(
     ofType(UserActionTypes.LoadUser),
     map((action: LoadUser) => action.payload),
-    switchMap((payload: {id: number}) => {
+    switchMap((payload: {id: string}) => {
       return this.userService.getUser(payload.id).pipe(
         map((data: UserModel) => new LoadUserSuccess(data)),
         catchError(error => of(new LoadUserFailure({error})))
