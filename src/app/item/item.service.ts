@@ -14,7 +14,7 @@ export class ItemService {
   constructor(private http: HttpClient) {}
 
   getItems()/*: Observable<ItemModel[]>*/ {
-    return this.http.get('"https://swapi.co/api/people/').pipe(
+    return this.http.get('https://swapi.co/api/people/').pipe(
       map(data => data['results'].map(item => {
           return {
             id: item['url'], name: item['name'], created: new Date(item['created'])
