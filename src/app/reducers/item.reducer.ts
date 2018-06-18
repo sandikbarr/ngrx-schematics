@@ -3,8 +3,8 @@ import { ItemActions, ItemActionTypes } from '../actions/item.actions';
 
 export interface State {
   entities?: {[id: string]: ItemModel};
-  loaded: boolean;
-  loading: boolean;
+  loaded?: boolean;
+  loading?: boolean;
   error?: any;
 }
 
@@ -48,6 +48,25 @@ export function reducer(state = initialState, action: ItemActions): State {
         error: action.payload,
         loading: false,
         loaded: false
+      };
+    }
+
+    case ItemActionTypes.AddItemSuccess:
+    case ItemActionTypes.UpdateItemSuccess: {
+      return {
+        ...state,
+        entities: {
+          ...state.entities,
+          [action.payload.id]: action.payload
+        }
+      };
+    }
+
+    case ItemActionTypes.DeleteItemSuccess: {
+      return const { [action.payload.id]: removed, ...entities } = state.entities;
+      return {
+        ...state,
+        entities
       };
     }
 
