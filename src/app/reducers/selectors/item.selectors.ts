@@ -3,7 +3,6 @@ import * as fromRoot from '../';
 
 import * as fromItem from '../item.reducer';
 import * as fromStarredItem from '../starred-item.reducer';
-import { ItemModel } from '../../item';
 
 export const selectItemState = createSelector(fromRoot.selectRootState, (state: fromRoot.State) => state.item);
 export const selectItemEntities = createSelector(selectItemState, fromItem.getEntities);
