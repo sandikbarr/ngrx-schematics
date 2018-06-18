@@ -20,4 +20,4 @@ export function reducer(state = initialState, action: StarredItemActions): State
   }
 }
 
-export const getStarredItems = (state: State) => state.items;
+export const getStarredItemIds = (state: State) => state.items;

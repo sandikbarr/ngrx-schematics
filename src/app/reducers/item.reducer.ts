@@ -74,3 +74,8 @@ export function reducer(state = initialState, action: ItemActions): State {
       return state;
   }
 }
+
+export const getEntities = (state: State) => state.entities;
+export const getLoading = (state: State) => state.loading;
+export const getLoaded = (state: State) => state.loaded;
+export const getError = (state: State) => state.error;
