@@ -16,7 +16,7 @@ export class ItemEffects {
   @Effect()
   loadItems$: Observable<Action> = this.actions$.pipe(
     ofType(ItemActionTypes.LoadItems),
-    // startWith(new LoadItems()), to trigger the effect immediately on start up and hydrate your app
+    startWith(new LoadItems()), // to trigger the effect immediately on start up and hydrate your app
     switchMap((action: LoadItems) => {
       return this.itemService.getItems().pipe(
         map((data: ItemModel[]) => new LoadItemsSuccess(data)),
