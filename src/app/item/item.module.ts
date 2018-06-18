@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemEffects } from '../effects/item.effects';
 import { StoreModule } from '@ngrx/store';
@@ -11,6 +12,7 @@ import { ItemService } from './item.service';
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     EffectsModule.forFeature([ItemEffects, StarredItemEffects]),
     StoreModule.forFeature('item', fromItem.reducer),
     StoreModule.forFeature('starredItem', fromStarredItem.reducer)
