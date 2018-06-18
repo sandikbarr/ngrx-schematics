@@ -9,6 +9,9 @@ export enum ItemActionTypes {
 
 export class LoadItems implements Action {
   readonly type = ItemActionTypes.LoadItems;
+
+  // TODO: according to the discriminated union pattern, I should not need a payload here, but reducers don't type narrow in switch WTF
+  constructor(public payload?: any) {}
 }
 
 export class LoadItemsSuccess implements Action {
