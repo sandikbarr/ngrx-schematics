@@ -4,12 +4,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { ItemEffects } from '../effects/item.effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromItem from '../reducers/item.reducer';
+import * as fromStarredItem from '../reducers/starred-item.reducer';
+import { StarredItemEffects } from '../effects/starred-item.effects';
 
 @NgModule({
   imports: [
     CommonModule,
-    EffectsModule.forFeature([ItemEffects]),
-    StoreModule.forFeature('item', fromItem.reducer)
+    EffectsModule.forFeature([ItemEffects, StarredItemEffects]),
+    StoreModule.forFeature('item', fromItem.reducer),
+    StoreModule.forFeature('starredItem', fromStarredItem.reducer)
   ],
   declarations: []
 })
