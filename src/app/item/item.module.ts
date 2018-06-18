@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromItem from '../reducers/item.reducer';
 import * as fromStarredItem from '../reducers/starred-item.reducer';
 import { StarredItemEffects } from '../effects/starred-item.effects';
+import { ItemService } from './item.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { StarredItemEffects } from '../effects/starred-item.effects';
     StoreModule.forFeature('item', fromItem.reducer),
     StoreModule.forFeature('starredItem', fromStarredItem.reducer)
   ],
-  declarations: []
+  declarations: [],
+  providers: [ItemService]
 })
 export class ItemModule { }
