@@ -22,7 +22,7 @@ export class StarredItemEffects {
   addItemToLocalStorage(itemId: string) {
     const starredItemsStored = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (starredItemsStored && starredItemsStored.length) {
-      localStorage.setItem(LOCAL_STORAGE_KEY, starredItemsStored.split(',').concat([itemId]).join(',');
+      localStorage.setItem(LOCAL_STORAGE_KEY, starredItemsStored.split(',').concat([itemId]).join(','));
     } else {
       localStorage.setItem(LOCAL_STORAGE_KEY, itemId);
     }
@@ -53,7 +53,7 @@ export class StarredItemEffects {
     switchMap((payload: string) => {
       this.addItemToLocalStorage(payload);
       return of(new LoadStarredItemsSuccess(this.readItemsFromLocalStorage()));
-    });
+    })
   );
 
   @Effect()

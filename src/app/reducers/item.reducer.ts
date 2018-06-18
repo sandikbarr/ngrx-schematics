@@ -63,7 +63,7 @@ export function reducer(state = initialState, action: ItemActions): State {
     }
 
     case ItemActionTypes.DeleteItemSuccess: {
-      return const { [action.payload.id]: removed, ...entities } = state.entities;
+      const { [action.payload.id]: removed, ...entities } = state.entities;
       return {
         ...state,
         entities
