@@ -9,6 +9,9 @@ import * as fromStarredItem from '../reducers/starred-item.reducer';
 import { StarredItemEffects } from '../effects/starred-item.effects';
 import { ItemService } from './item.service';
 
+import { ItemListContainerComponent } from './components/item-list-container.component';
+import { ItemListComponent } from './components/item-list.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +20,13 @@ import { ItemService } from './item.service';
     StoreModule.forFeature('item', fromItem.reducer),
     StoreModule.forFeature('starredItem', fromStarredItem.reducer)
   ],
-  declarations: [],
+  declarations: [
+    ItemListContainerComponent,
+    ItemListComponent
+  ],
+  exports: [
+    ItemListContainerComponent
+  ],
   providers: [ItemService]
 })
 export class ItemModule { }

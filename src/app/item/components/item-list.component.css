@@ -1,0 +1,13 @@
+li {
+  list-style: none;
+  cursor: pointer;
+  color: blue;
+  line-height: 25px;
+}
+li.starred:after {
+  margin-left: 0.5em;
+  content: '\2605';
+}
+li.starred {
+  font-weight: 700;
+}
