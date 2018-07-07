@@ -11,14 +11,17 @@ import { ItemService } from './item.service';
 
 import { ItemListContainerComponent } from './components/item-list-container.component';
 import { ItemListComponent } from './components/item-list.component';
+import * as fromTag from '../reducers/tag.reducer';
+import { TagEffects } from '../effects/tag.effects';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    EffectsModule.forFeature([ItemEffects, StarredItemEffects]),
+    EffectsModule.forFeature([ItemEffects, StarredItemEffects, TagEffects]),
     StoreModule.forFeature('item', fromItem.reducer),
-    StoreModule.forFeature('starredItem', fromStarredItem.reducer)
+    StoreModule.forFeature('starredItem', fromStarredItem.reducer),
+    StoreModule.forFeature('tag', fromTag.reducer)
   ],
   declarations: [
     ItemListContainerComponent,

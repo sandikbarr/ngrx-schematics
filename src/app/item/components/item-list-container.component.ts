@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectItems, selectStarredItemIds } from '../../reducers/selectors/item.selectors';
+import { selectItemsWithTags, selectStarredItemIds } from '../../reducers/selectors/item.selectors';
 import { ItemModel } from '../';
 import * as fromStarredItem from '../../actions/starred-item.actions';
 
@@ -15,7 +15,6 @@ import * as fromStarredItem from '../../actions/starred-item.actions';
       (unstarItem)="unstarItem($event)"></app-item-list-view>
   `
 })
-
 export class ItemListContainerComponent implements OnInit {
   items$: Observable<ItemModel[]>;
   starredItemIds$: Observable<string[]>;
@@ -23,7 +22,7 @@ export class ItemListContainerComponent implements OnInit {
   constructor(private store: Store<any>) {}
 
   ngOnInit() {
-    this.items$ = this.store.pipe(select(selectItems));
+    this.items$ = this.store.pipe(select(selectItemsWithTags));
     this.starredItemIds$ = this.store.pipe(select(selectStarredItemIds));
   }
 

@@ -4,13 +4,18 @@ import { ItemModel } from '../';
 @Component({
   selector: 'app-item-list-view',
   template: `
-    <ul>
-      <li *ngFor="let item of items" [class.starred]="isStarred(item)" (click)="toggleStar(item)">{{item.name}}</li>
-    </ul>
+    <div *ngFor="let item of items">
+      <input type="checkbox" [id]="item.id" [checked]="isStarred(item)" (click)="toggleStar(item)">
+      <label [for]="item.id">{{item.name}}</label>
+      <ul>
+        <li *ngFor="let tag of item.tags">
+          {{tag.name}}
+        </li>
+      </ul>
+    </div>
   `,
   styleUrls: ['item-list.component.css']
 })
-
 export class ItemListComponent {
   @Input() items: ItemModel[];
   @Input() starredItemIds: string[];
